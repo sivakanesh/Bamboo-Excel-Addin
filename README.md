@@ -47,3 +47,4 @@ This will not provide the password for file level protection (i.e. password requ
 2. Known Issues
 ===============================================
 1. Number of files and folders are limited to the number of rows on a single worksheet.
+2. Another issue test
