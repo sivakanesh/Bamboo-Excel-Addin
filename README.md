@@ -42,3 +42,8 @@ Unprotect Workbook
 If the current workbook has been protected, this will unprotect it and provide the password used to protect it.  The process will also unprotect the worksheets within the current workbook.
 
 This will not provide the password for file level protection (i.e. password required to Open or Modify an Excel sheet).
+
+
+2. Known Issues
+===============================================
+1. Number of files and folders are limited to the number of rows on a single worksheet.
