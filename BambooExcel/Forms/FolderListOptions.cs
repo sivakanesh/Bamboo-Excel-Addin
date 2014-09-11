@@ -49,12 +49,17 @@ namespace BambooExcel.Forms
             //List of file based dates from UI
             int FileCount = 1;
             int ReportLatestFileAccessDateWithinFolder = 0;
+            int ReportFolderSize = 0;
 
             if  (cbReportLastAccessDate.Checked){
                 ReportLatestFileAccessDateWithinFolder = 1; 
             }
 
-            int totalAdditionalColumns = ReportLatestFileAccessDateWithinFolder + FileCount;
+            if (cbReportFolderSize.Checked){
+                ReportFolderSize = 1;
+            }
+
+            int totalAdditionalColumns = ReportLatestFileAccessDateWithinFolder + FileCount + ReportFolderSize;
 
             //////////////////////////////////
 
@@ -98,6 +103,12 @@ namespace BambooExcel.Forms
                 j++;
             }
 
+            if (cbReportFolderSize.Checked)
+            {
+                fileArray[0, j] = "Folder Size";
+                j++;
+            }
+
             errors[0] = "Error Message";
             //-----------------------------------------------------------------------
 
@@ -124,12 +135,23 @@ namespace BambooExcel.Forms
                         j++;
 
                         //LastAccessTime---------------------------------
-                        FileInfo fl = d.GetFiles().OrderByDescending(f => f.LastAccessTime).FirstOrDefault();
-                        if (fl != null)
+                        if (cbReportLastAccessDate.Checked)
                         {
-                            fileArray[i, j] = fl.LastAccessTime.ToString("dd/MM/yyyy HH:mm:ss");
+                            FileInfo fl = d.GetFiles().OrderByDescending(f => f.LastAccessTime).FirstOrDefault();
+                            if (fl != null)
+                            {
+                                fileArray[i, j] = fl.LastAccessTime.ToString("dd/MM/yyyy HH:mm:ss");
+                                j++;
+                            }
+                        }
+
+                        //Folder size-----------------------------------------
+                        if (cbReportFolderSize.Checked)
+                        {
+                            fileArray[i, j] = (IOUtil.DirSize(d)/1024f/1024f).ToString("0.00");
                             j++;
                         }
+
                     }
                     catch (UnauthorizedAccessException uauthe)
                     {

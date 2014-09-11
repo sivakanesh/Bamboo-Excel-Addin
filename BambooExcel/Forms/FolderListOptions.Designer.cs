@@ -29,17 +29,19 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbReportLastAccessDate = new System.Windows.Forms.CheckBox();
             this.txtFolder = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.cbReportLastAccessDate = new System.Windows.Forms.CheckBox();
+            this.cbReportFolderSize = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbReportFolderSize);
             this.groupBox1.Controls.Add(this.cbReportLastAccessDate);
             this.groupBox1.Controls.Add(this.txtFolder);
             this.groupBox1.Controls.Add(this.btnBrowse);
@@ -50,6 +52,16 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
+            // 
+            // cbReportLastAccessDate
+            // 
+            this.cbReportLastAccessDate.AutoSize = true;
+            this.cbReportLastAccessDate.Location = new System.Drawing.Point(6, 66);
+            this.cbReportLastAccessDate.Name = "cbReportLastAccessDate";
+            this.cbReportLastAccessDate.Size = new System.Drawing.Size(222, 17);
+            this.cbReportLastAccessDate.TabIndex = 8;
+            this.cbReportLastAccessDate.Text = "Report latest file access date within folder";
+            this.cbReportLastAccessDate.UseVisualStyleBackColor = true;
             // 
             // txtFolder
             // 
@@ -99,15 +111,15 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // cbReportLastAccessDate
+            // cbReportFolderSize
             // 
-            this.cbReportLastAccessDate.AutoSize = true;
-            this.cbReportLastAccessDate.Location = new System.Drawing.Point(9, 91);
-            this.cbReportLastAccessDate.Name = "cbReportLastAccessDate";
-            this.cbReportLastAccessDate.Size = new System.Drawing.Size(222, 17);
-            this.cbReportLastAccessDate.TabIndex = 8;
-            this.cbReportLastAccessDate.Text = "Report latest file access date within folder";
-            this.cbReportLastAccessDate.UseVisualStyleBackColor = true;
+            this.cbReportFolderSize.AutoSize = true;
+            this.cbReportFolderSize.Location = new System.Drawing.Point(6, 89);
+            this.cbReportFolderSize.Name = "cbReportFolderSize";
+            this.cbReportFolderSize.Size = new System.Drawing.Size(108, 17);
+            this.cbReportFolderSize.TabIndex = 9;
+            this.cbReportFolderSize.Text = "Report folder size";
+            this.cbReportFolderSize.UseVisualStyleBackColor = true;
             // 
             // frmFolderListOptions
             // 
@@ -136,5 +148,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbReportLastAccessDate;
+        private System.Windows.Forms.CheckBox cbReportFolderSize;
     }
 }

@@ -35,6 +35,25 @@ namespace BambooExcel.IO
             //return files;
         }
 
+        //Give you the directory size
+        public static long DirSize(DirectoryInfo d)
+        {
+            long Size = 0;
+            // Add file sizes.
+            FileInfo[] fis = d.GetFiles();
+            foreach (FileInfo fi in fis)
+            {
+                Size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                Size += DirSize(di);
+            }
+            return (Size);
+        }
+
         
 
     }
